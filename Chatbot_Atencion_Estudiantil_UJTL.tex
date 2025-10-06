@@ -1,0 +1,66 @@
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[numbers]{natbib}
+
+\title{\textbf{Chatbot de Atención Estudiantil Basado en IA para la Universidad Jorge Tadeo Lozano}}
+\author{
+Sara Fiorella Ospina Pachón \\ 
+\texttt{sara.ospinap@utadeo.edu.co} \\
+Universidad Jorge Tadeo Lozano — Programa: Ingeniería de Sistemas \\
+Curso: Inteligencia Artificial — Bogotá D.C., Colombia \\
+5 de octubre de 2025
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Resumen}
+Este proyecto presenta el desarrollo de un chatbot inteligente para la atención estudiantil en la Universidad Jorge Tadeo Lozano. Su propósito es responder preguntas frecuentes sobre matrículas, horarios, asignaturas y servicios institucionales, optimizando la comunicación entre estudiantes y áreas administrativas. El sistema utiliza modelos de lenguaje basados en Transformers (BERT, T5-small) y técnicas de Procesamiento del Lenguaje Natural (PLN) para comprender consultas y generar respuestas coherentes. El modelo se entrenará con datos institucionales y corpus públicos en español, esperando alcanzar una precisión superior al 85\% en clasificación de intenciones y reducir un 60\% los tiempos de respuesta frente a la atención humana tradicional.
+
+\section*{Problema local y motivación}
+En la Universidad Jorge Tadeo Lozano, gran parte del tiempo del personal administrativo se destina a responder consultas repetitivas sobre procesos académicos, inscripciones, pagos y notas. Esto genera congestión en los canales de atención y disminuye la satisfacción estudiantil. En el contexto de Bogotá, donde la digitalización universitaria avanza rápidamente, se propone implementar un chatbot conversacional como solución innovadora para automatizar respuestas, mejorar la eficiencia operativa y promover la transformación digital institucional.
+
+\section*{Dataset}
+El modelo se entrenará con un conjunto de datos híbrido: (1) información institucional (preguntas frecuentes y guías académicas de la UJTL), y (2) datasets públicos “ChatterBot Corpus (ES)” y “FAQ dataset in Spanish”, con aproximadamente 18.000 instancias. El formato es CSV/JSON con columnas (\texttt{intent}, \texttt{utterance}, \texttt{response}) y licencia MIT/Creative Commons. El dataset es válido por su diversidad, actualidad (2024–2025) y representatividad del contexto educativo colombiano.
+
+\section*{Tarea de IA y algoritmo(s)}
+La tarea corresponde a la clasificación de intenciones y generación de respuestas en texto (modalidad texto–texto). Se utilizarán los modelos BERT Multilingual Base para detección de intención y T5-small o DialoGPT para generación contextual. Estos modelos son apropiados por su capacidad de comprensión contextual y eficiencia con corpus limitados. Como línea base se empleará un modelo de regresión logística con vectores TF-IDF para comparación.
+
+\section*{Metodología y evaluación}
+El preprocesamiento incluirá limpieza, tokenización, eliminación de stopwords y lematización en español. Los datos se dividirán en 70\% entrenamiento, 15\% validación y 15\% prueba. Se utilizarán métricas como Accuracy, F1-score, Precision/Recall y BLEU score, con validación cruzada (5-fold CV). La implementación se realizará con Python (Hugging Face, scikit-learn) y una interfaz web en Streamlit.
+
+\section*{Resultados esperados, ética y cronograma}
+Se espera que el chatbot alcance una F1-score $\geq$ 0.85, responda correctamente al 90\% de las preguntas frecuentes y reduzca los tiempos de atención en más del 50\%. Desde la perspectiva ética, se garantizará la privacidad y anonimato de los usuarios, uso de datos con consentimiento informado y revisión humana para evitar sesgos o respuestas inadecuadas. Cronograma: Semana 1 - recolección de datos; Semana 2 - entrenamiento; Semana 3 - pruebas; Semana 4 - implementación y documentación.
+
+\section*{Roles del equipo y recursos}
+\textbf{Sara Fiorella Ospina Pachón:} liderazgo técnico, modelado y documentación.  
+\textbf{Integrante 2:} adquisición y limpieza de datos.  
+\textbf{Integrante 3:} desarrollo de interfaz en Streamlit.  
+
+Recursos requeridos: GPU de entrenamiento (Google Colab), librerías Python (\texttt{Transformers}, \texttt{Scikit-learn}, \texttt{Streamlit}).  
+Riesgos técnicos: limitación del dataset, sesgos lingüísticos y errores semánticos; mitigación mediante revisión manual y pruebas piloto controladas.
+
+\section*{Referencias}
+\begin{enumerate}[label={[\arabic*]}]
+\item Devlin, J. et al. (2019). \textit{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.} NAACL.
+\item Wolf, T. et al. (2020). \textit{Transformers: State-of-the-Art Natural Language Processing.} EMNLP.
+\item Radford, A. et al. (2020). \textit{Language Models are Few-Shot Learners.} OpenAI.
+\item Google Cloud (2024). \textit{AI Conversational Platforms for Education.}
+\item Universidad Jorge Tadeo Lozano (2024). \textit{Portal Estudiantil y Guías Académicas.}
+\item Hugging Face (2025). \textit{Model Hub: BERT Multilingual Base.}
+\item López, M., \& Gómez, P. (2023). \textit{Chatbots en educación superior colombiana. Rev. Innovación Digital.}
+\item Turing, A. (1950). \textit{Computing Machinery and Intelligence.}
+\item Pérez, A. (2022). \textit{Procesamiento de lenguaje natural con Python y SpaCy.} Alfaomega.
+\item MIT License (2024). \textit{ChatterBot Corpus (ES).}
+\end{enumerate}
+
+\end{document}
